@@ -1,0 +1,27 @@
+﻿{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% block title %}ShopName — магазин для жизни{% endblock %}</title>
+<link rel="stylesheet" href="{% static 'main/style.css' %}">
+{% block extra_css %}{% endblock %}
+</head>
+<body>
+<a class="skip-link" href="#content">Перейти к содержимому</a>
+<header class="site-header"><div class="container header-container">
+<a href="{% url 'main' %}" class="logo"><span class="logo-mark" aria-hidden="true">s.</span> ShopName</a>
+<nav class="nav-links" aria-label="Основная навигация">
+<a href="{% url 'catalog' %}" {% if request.resolver_match.url_name == 'catalog' or request.resolver_match.url_name == 'main' %}aria-current="page"{% endif %}>Каталог</a>
+<a href="{% url 'about' %}" {% if request.resolver_match.url_name == 'about' %}aria-current="page"{% endif %}>О нас</a>
+<a href="{% url 'contacts' %}" {% if request.resolver_match.url_name == 'contacts' %}aria-current="page"{% endif %}>Контакты</a>
+</nav>
+<a class="cart-link" href="{% url 'cart_detail' %}">Корзина <span aria-hidden="true">↗</span></a>
+</div></header>
+<main class="site-main" id="content"><div class="container">{% block content %}{% endblock %}</div></main>
+<footer class="site-footer"><div class="container footer-grid">
+<div><a class="logo" href="{% url 'main' %}">ShopName<span class="accent">.</span></a><p>Простые покупки.<br>Больше времени для жизни.</p></div>
+<div><h2>Магазин</h2><a href="{% url 'catalog' %}">Каталог</a><a href="{% url 'about' %}">О нас</a><a href="{% url 'cart_detail' %}">Корзина</a></div>
+<div><h2>На связи</h2><a href="tel:+79990000000">+7 (999) 000-00-00</a><a href="mailto:support@shop.ru">support@shop.ru</a><a href="{% url 'contacts' %}">Все контакты ↗</a></div>
+</div><div class="container footer-bottom"><span>© {% now 'Y' %} ShopName</span><span>Товары для повседневной жизни</span></div></footer>
+</body></html>

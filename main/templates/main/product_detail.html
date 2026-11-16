@@ -1,0 +1,6 @@
+﻿{% extends "main/base.html" %}
+{% block title %}{{ product.name }} — ShopName{% endblock %}
+{% block content %}
+<a class="back-link" href="{% url 'catalog' %}">← В каталог</a>
+<article class="product-detail"><div class="detail-image">{% if product.image %}<img src="{{ product.image.url }}" alt="{{ product.name }}">{% else %}<span class="image-placeholder">s.</span>{% endif %}</div><div class="detail-content"><p class="eyebrow">{{ product.category.name }}</p><h1>{{ product.name }}</h1><p class="availability"><span></span> Доступен к заказу</p><p class="detail-price">{{ product.price }} ₽</p><div class="product-description">{{ product.description|linebreaks }}</div><form method="post" action="{% url 'add_to_cart' product.id %}" class="purchase-form">{% csrf_token %}<label for="quantity">Количество</label><div><input id="quantity" type="number" name="quantity" value="1" min="1" max="99"><button class="button" type="submit">Добавить в корзину →</button></div></form><p class="detail-hint">Укажите адрес доставки при оформлении заказа.</p></div></article>
+{% endblock %}

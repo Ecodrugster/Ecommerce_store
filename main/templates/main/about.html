@@ -1,0 +1,6 @@
+﻿{% extends "main/base.html" %}
+{% block title %}О нас — ShopName{% endblock %}
+{% block content %}
+<section class="about-hero"><p class="eyebrow">ЗНАКОМЬТЕСЬ, SHOPNAME</p><h1>Покупки проще.<br><span class="muted">Жизнь интереснее.</span></h1><p class="lead">Магазин вещей для повседневной жизни. Удобный каталог, понятный выбор и оформление заказа без лишних шагов.</p><a class="button" href="{% url 'catalog' %}">Открыть каталог ↗</a></section>
+<div class="values-grid"><article class="info-card"><span class="card-number">01 / ВЫБИРАЙТЕ</span><h2>Всё перед глазами</h2><p>Категории, фотографии и описания помогут найти нужный товар и узнать о нём больше.</p></article><article class="info-card"><span class="card-number">02 / СОБИРАЙТЕ</span><h2>В своём темпе</h2><p>Добавляйте товары в корзину, меняйте количество и проверяйте итоговую сумму.</p></article><article class="info-card"><span class="card-number">03 / ЗАКАЗЫВАЙТЕ</span><h2>Несколько шагов</h2><p>Укажите контактные данные и адрес доставки. Комментарий поможет уточнить ваши пожелания.</p></article></div>
+{% endblock %}

@@ -1,0 +1,5 @@
+﻿{% extends "main/base.html" %}
+{% block title %}Заказ принят — ShopName{% endblock %}
+{% block content %}
+<section class="success-card"><span class="success-icon" aria-hidden="true">✓</span><p class="eyebrow">ЗАКАЗ №{{ order.id }}</p><h1>Спасибо за покупку!</h1><p>Ваш заказ оформлен. Мы свяжемся с вами для подтверждения.</p><a class="button" href="{% url 'catalog' %}">Вернуться в каталог →</a></section>
+{% endblock %}
